@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your VIP Gift - The Self-Love Haven</title>
+<!--
+  ============================================================
+  VIP EBOOK UNLOCK PAGE
+  The QR code on each VIP affirmation card points here.
+  The guest types the word Arlana speaks from the stage to open the
+  Falling For You ebook. Everything stays on her site.
+  ------------------------------------------------------------
+  TO FINISH:
+  1. Place the ebook in this folder as "falling-for-you.pdf".
+  2. The unlock word is BLOOM. Change UNLOCK_WORD in the script
+     below if you want a different word, and print that word
+     on the VIP cards.
+  Note: this is a soft gate, the word is the key. Perfect for a
+  VIP perk, it is not meant to be bank-grade security.
+  ============================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --crimson:#9E1C2A;--rose:#C0202F;--wine:#7C1622;--cream:#F8F1E0;
+    --cream-deep:#EFE3C7;--gold:#BE9A57;--espresso:#2B2724;--ivory:#FFFFFF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:radial-gradient(ellipse at 50% 0%,rgba(190,154,87,.22),transparent 60%),var(--cream);
+    font-family:'Nunito Sans',Arial,sans-serif;color:var(--espresso);
+    min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 18px;
+  }
+  .card{
+    max-width:520px;width:100%;background:var(--ivory);border:1px solid var(--gold);
+    border-radius:20px;padding:14px;box-shadow:0 30px 60px -28px rgba(124,22,34,.4);
+  }
+  .inner{border:1px solid rgba(190,154,87,.5);border-radius:14px;padding:42px 36px;text-align:center;}
+  .eyebrow{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#9C7A2E;font-weight:800;}
+  h1{font-family:'Playfair Display',Georgia,serif;font-weight:700;color:var(--crimson);
+     font-size:34px;line-height:1.1;margin:14px 0 6px;}
+  .sub{font-family:'Playfair Display',Georgia,serif;font-style:italic;color:var(--wine);font-size:16px;}
+  .rule{width:54px;height:3px;background:var(--gold);margin:18px auto;border-radius:2px;}
+  p{font-size:15px;line-height:1.7;color:var(--espresso);}
+  .field{margin-top:22px;}
+  input{
+    width:100%;font-family:'Nunito Sans',Arial,sans-serif;font-size:16px;text-align:center;
+    letter-spacing:2px;color:var(--espresso);background:var(--cream);
+    border:1px solid rgba(190,154,87,.6);border-radius:999px;padding:15px 20px;outline:none;
+  }
+  input:focus{border-color:var(--crimson);background:var(--ivory);}
+  button{
+    margin-top:12px;width:100%;font-family:'Nunito Sans',Arial,sans-serif;font-weight:800;
+    font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--ivory);
+    background:linear-gradient(135deg,var(--rose),var(--crimson) 50%,var(--wine));
+    border:0;border-radius:999px;padding:16px 24px;cursor:pointer;
+  }
+  .msg{margin-top:14px;font-family:'Playfair Display',Georgia,serif;font-style:italic;
+       font-size:15px;color:var(--wine);min-height:20px;}
+  .gift{display:none;margin-top:6px;}
+  .gift.show{display:block;}
+  .gate.hide{display:none;}
+  .dl{
+    display:inline-block;margin-top:18px;font-family:'Nunito Sans',Arial,sans-serif;
+    font-weight:800;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--ivory);
+    background:linear-gradient(135deg,var(--rose),var(--crimson) 50%,var(--wine));
+    text-decoration:none;border-radius:999px;padding:16px 34px;
+  }
+  .foot{margin-top:28px;font-size:12px;color:#9C7A2E;}
+  .foot a{color:var(--crimson);}
+</style>
+</head>
+<body>
+<div class="card"><div class="inner">
+
+  <div class="eyebrow">The Self-Love Haven</div>
+  <h1>Welcome, VIP guest</h1>
+  <div class="sub">A small thank-you, just for you</div>
+  <div class="rule"></div>
+
+  <div class="gate" id="gate">
+    <p>Tonight Arlana speaks the word of the evening from the stage. Type that word here to open your free copy of <em>Falling For You</em>.</p>
+    <div class="field">
+      <input id="code" type="text" placeholder="The word of the evening" autocomplete="off" aria-label="The word of the evening" />
+    </div>
+    <button id="unlock">Unlock my ebook</button>
+    <div class="msg" id="msg" role="status" aria-live="polite"></div>
+  </div>
+
+  <div class="gift" id="gift">
+    <p>Here it is, with love. Keep it close, and read it on the days you need it most.</p>
+    <a class="dl" href="falling-for-you.pdf" download>Download Falling For You</a>
+  </div>
+
+  <div class="foot">A gift from Arlana Flowers &middot; <a href="https://theselflovehaven.com" target="_blank" rel="noopener">theselflovehaven.com</a></div>
+
+</div></div>
+
+<script>
+(function(){
+  var UNLOCK_WORD = "bloom";
+  var gate = document.getElementById('gate');
+  var gift = document.getElementById('gift');
+  var msg  = document.getElementById('msg');
+  var code = document.getElementById('code');
+  var btn  = document.getElementById('unlock');
+  function tryUnlock(){
+    var v = (code.value || '').trim().toLowerCase();
+    if(v === UNLOCK_WORD){
+      gate.classList.add('hide');
+      gift.classList.add('show');
+    } else if(v === ''){
+      msg.textContent = 'Type the word of the evening.';
+    } else {
+      msg.textContent = 'That is not the word. Listen for it from the stage.';
+    }
+  }
+  btn.addEventListener('click', tryUnlock);
+  code.addEventListener('keydown', function(e){ if(e.key === 'Enter') tryUnlock(); });
+})();
+</script>
+</body>
+</html>

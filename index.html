@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Arlana Flowers, A Self-Love Haven</title>
+<meta name="description" content="A self-love sanctuary by Arlana. Daily blooms, poetry, and the shop. Stay close." />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #FFFFFF; color: #2B2724; font-family: 'Lora', Georgia, serif; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+  a { color: #9E1C2A; text-decoration: underline; }
+  img { display: block; max-width: 100%; height: auto; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 28px; }
+
+  @keyframes shimmer {
+    0%   { background-position: -180% center; }
+    45%  { background-position: 180% center; }
+    100% { background-position: 180% center; }
+  }
+  .shimmer {
+    background: linear-gradient(110deg, #BE9A57 20%, #E8C879 38%, #FFE4A8 50%, #E8C879 62%, #BE9A57 80%);
+    background-size: 240% auto;
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+    animation: shimmer 14s ease-in-out infinite;
+  }
+  .shimmer-red {
+    background: linear-gradient(110deg, #9E1C2A 20%, #C72F40 42%, #F26276 50%, #C72F40 58%, #9E1C2A 80%);
+    background-size: 240% auto;
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+    animation: shimmer 18s ease-in-out infinite;
+  }
+
+  /* HERO */
+  .hero { background: #FFFFFF; padding: 48px 24px 24px; text-align: center; position: relative; }
+  .hero-rose { width: 110px; margin: 0 auto 18px; opacity: 0.95; }
+  .hero-portrait { width: 320px; max-width: 80%; margin: 0 auto; border: 1px solid #E8D9B6; padding: 14px; background: #FFFFFF; box-shadow: 0 6px 24px rgba(190, 154, 87, 0.18); }
+  .hero-portrait img { width: 100%; height: auto; border-radius: 2px; }
+  .hero-caption { padding: 36px 24px 0; text-align: center; }
+  .hero-kicker { font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 6px; text-transform: uppercase; }
+  .hero-headline { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 54px; padding-top: 14px; line-height: 1.05; }
+  .hero-sub { font-family: 'Lora', serif; color: #5A534C; padding-top: 18px; font-size: 17px; max-width: 540px; margin: 0 auto; }
+
+  section { padding: 72px 0; }
+  .section-tag { font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 5px; color: #9C7A2E; text-transform: uppercase; text-align: center; }
+  .divider { width: 56px; height: 1px; background: #BE9A57; margin: 14px auto 30px; }
+  h2 { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 38px; color: #7C1622; text-align: center; line-height: 1.18; font-weight: 500; }
+
+  .welcome-wrap { background: #FBF6E8; padding: 56px 0; }
+  .welcome { background: #FFFFFF; border: 1px solid #E8D9B6; padding: 56px 44px; }
+  .welcome p { font-size: 17px; line-height: 1.95; color: #2B2724; }
+  .welcome .signoff { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 24px; color: #9E1C2A; padding-top: 24px; }
+
+  /* THE NIGHT */
+  .night { background: #FFFFFF; padding: 72px 0; }
+  .night-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-top: 30px; }
+  .night-photo { background: #FFFFFF; border: 1px solid #E8D9B6; padding: 10px; }
+  .night-photo img { width: 100%; height: 240px; object-fit: cover; display: block; }
+  .night-photo .cap { font-family: 'Playfair Display', serif; font-style: italic; font-size: 14px; color: #7C1622; text-align: center; padding: 12px 6px 4px; }
+
+  /* DAILY BLOOM */
+  .bloom { padding: 72px 24px; text-align: center; }
+  .bloom-card { background: #FFFFFF; border: 1px solid #E8D9B6; padding: 44px 34px; max-width: 560px; margin: 0 auto; box-shadow: 0 2px 12px rgba(190, 154, 87, 0.08); }
+  .bloom-rose { font-size: 28px; color: #BE9A57; }
+  .bloom-quote { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 28px; color: #7C1622; padding: 22px 8px 8px; line-height: 1.4; }
+  .bloom-date { font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 3px; color: #9C7A2E; text-transform: uppercase; padding-top: 22px; }
+  .bloom-toggle { display: flex; gap: 12px; justify-content: center; padding-top: 24px; }
+  .bloom-btn { font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; background: transparent; border: 1px solid #BE9A57; color: #7C1622; padding: 10px 20px; cursor: pointer; transition: all 0.25s; border-radius: 999px; }
+  .bloom-btn.active { background: #9E1C2A; color: #FFFFFF; border-color: #9E1C2A; }
+  .bloom-btn:hover { background: #BE9A57; color: #FFFFFF; }
+
+  /* SHOP THE GARDEN */
+  .shop { background: #FBF6E8; padding: 80px 0; position: relative; }
+  .shop-rose { width: 70px; margin: 0 auto 14px; display: block; opacity: 0.85; }
+  .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; padding-top: 36px; }
+  .product { background: #FFFFFF; border: 1px solid #E8D9B6; padding: 28px 22px; text-align: center; display: flex; flex-direction: column; }
+  .product-tag { font-family: Arial, sans-serif; font-size: 9px; letter-spacing: 3px; color: #9C7A2E; text-transform: uppercase; }
+  .product-title { font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: #7C1622; padding-top: 10px; line-height: 1.2; }
+  .product-body { font-family: 'Lora', serif; font-size: 14px; color: #5A534C; line-height: 1.65; padding-top: 12px; flex-grow: 1; }
+  .product-price { font-family: 'Playfair Display', serif; font-size: 28px; color: #9E1C2A; padding-top: 16px; font-weight: 600; }
+  .product-price small { font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 2px; color: #9C7A2E; text-transform: uppercase; display: block; padding-top: 4px; }
+  .product-btn { display: inline-block; margin-top: 16px; padding: 13px 22px; background: #9E1C2A; color: #FFFFFF; font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; border-radius: 4px; font-weight: 700; transition: background 0.25s; }
+  .product-btn:hover { background: #7C1622; color: #FFFFFF; }
+  .product-btn.soft { background: transparent; color: #7C1622; border: 1px solid #BE9A57; }
+  .product-btn.soft:hover { background: #BE9A57; color: #FFFFFF; }
+
+  /* COMING SOON */
+  .coming { background: #FFFFFF; padding: 72px 0; }
+  .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; padding-top: 36px; }
+  .feature { background: #FBF6E8; border: 1px solid #E8D9B6; padding: 28px 22px; }
+  .feature-icon { font-family: 'Playfair Display', serif; font-style: italic; font-size: 30px; color: #9E1C2A; line-height: 1; }
+  .feature-title { font-family: 'Playfair Display', serif; font-size: 18px; color: #7C1622; padding-top: 10px; font-weight: 600; }
+  .feature-body { font-family: 'Lora', serif; font-size: 14px; color: #5A534C; line-height: 1.65; padding-top: 8px; }
+
+  /* SIGNUP */
+  .signup-wrap { background: #FBF6E8; padding: 72px 0; }
+  .signup { background: #FFFFFF; padding: 64px 36px; text-align: center; border: 1px solid #E8D9B6; }
+  .signup h2 { color: #9E1C2A; }
+  .signup form { display: flex; flex-direction: column; gap: 14px; max-width: 460px; margin: 30px auto 0; }
+  .signup input[type=email] { padding: 17px 20px; border: 1px solid #BE9A57; background: #FFFFFF; font-family: 'Lora', serif; font-size: 15px; color: #2B2724; border-radius: 4px; }
+  .signup input[type=email]:focus { outline: 2px solid #9E1C2A; outline-offset: -1px; }
+  .signup button { padding: 17px 24px; background: linear-gradient(110deg, #9E1C2A 0%, #C72F40 50%, #9E1C2A 100%); background-size: 240% auto; color: #FFFFFF; border: none; font-family: Arial, sans-serif; letter-spacing: 4px; font-size: 12px; text-transform: uppercase; cursor: pointer; border-radius: 4px; font-weight: 700; animation: shimmer 22s ease-in-out infinite; }
+  .signup button:hover { animation-duration: 4s; }
+  .signup .privacy { font-family: 'Lora', serif; font-size: 12px; color: #9C7A2E; padding-top: 16px; font-style: italic; }
+  .signup .success { font-family: 'Playfair Display', serif; font-style: italic; font-size: 24px; color: #7C1622; padding-top: 18px; }
+
+  footer { background: #2B2724; color: #F8F1E0; text-align: center; padding: 32px 24px; }
+  footer .name { font-family: 'Playfair Display', serif; font-size: 22px; font-style: italic; }
+  footer .tag { font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 3px; color: #BE9A57; padding-top: 8px; text-transform: uppercase; }
+  footer .legal { font-family: 'Lora', serif; font-size: 11px; color: #9C7A2E; padding-top: 18px; }
+
+  @media (max-width: 600px) {
+    .hero-headline { font-size: 38px; }
+    h2 { font-size: 30px; }
+    .feature-grid, .shop-grid, .night-grid { grid-template-columns: 1fr; }
+    .night-photo img { height: 280px; }
+    .bloom-quote { font-size: 23px; }
+    .welcome { padding: 40px 26px; }
+    section { padding: 56px 0; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <img class="hero-rose" src="https://allflowers.netlify.app/rose.png" alt="Arlana Flowers rose mark" />
+    <div class="hero-portrait">
+      <img src="https://allflowers.netlify.app/arlana.jpg" alt="Arlana Flowers" />
+    </div>
+    <div class="hero-caption">
+      <div class="hero-kicker shimmer">A Self-Love Haven</div>
+      <div class="hero-headline shimmer-red">Hello, Beautiful Flower.</div>
+      <div class="hero-sub">Petals &amp; Poetry was May 31, 2026. The next room is breathing. Stay close, sit, shop the garden.</div>
+    </div>
+  </header>
+
+  <div class="welcome-wrap">
+    <div class="wrap">
+      <div class="welcome">
+        <div class="section-tag">A note from Arlana</div>
+        <div class="divider"></div>
+        <p>To the 30+ Beautiful Flowers who filled the room on May 31, thank you. You came, you breathed, you let the words land. The night bloomed because you did.</p>
+        <p style="padding-top:16px;">This page is a soft landing. A garden between rooms. Read the bloom of the day, shop the things made for your softness, and slip your email into the soil so I can tell you when the next room opens.</p>
+        <div class="signoff">Love and rosewater, Arlana</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="night">
+    <div class="wrap">
+      <div class="section-tag">From the night</div>
+      <div class="divider"></div>
+      <h2>The room was set with care.</h2>
+      <div class="night-grid">
+        <div class="night-photo">
+          <img src="https://allflowers.netlify.app/event/photo-5.jpg" alt="Welcome rose moment" />
+          <div class="cap">welcome rose</div>
+        </div>
+        <div class="night-photo">
+          <img src="https://allflowers.netlify.app/event/photo-8.jpg" alt="The room reads" />
+          <div class="cap">the room reads</div>
+        </div>
+        <div class="night-photo">
+          <img src="https://allflowers.netlify.app/event/photo-9.jpg" alt="Held on the way out" />
+          <div class="cap">goodbye, hold this</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="bloom">
+      <div class="section-tag shimmer">Daily Bloom</div>
+      <div class="divider"></div>
+      <div class="bloom-card">
+        <div class="bloom-rose">&#10047;</div>
+        <div id="bloom-quote" class="bloom-quote">Loading today&rsquo;s bloom&hellip;</div>
+        <div id="bloom-date" class="bloom-date">&nbsp;</div>
+        <div class="bloom-toggle">
+          <button class="bloom-btn" id="btn-yesterday" onclick="showBloom(-1)">Yesterday</button>
+          <button class="bloom-btn active" id="btn-today" onclick="showBloom(0)">Today</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="shop">
+    <div class="wrap">
+      <img class="shop-rose" src="https://allflowers.netlify.app/rose.png" alt="" />
+      <div class="section-tag">Shop the Garden</div>
+      <div class="divider"></div>
+      <h2>For the days you need a bloom in your hand.</h2>
+      <div class="shop-grid">
+        <div class="product">
+          <div class="product-tag">EBOOK</div>
+          <div class="product-title">Falling For You</div>
+          <div class="product-body">A poetry collection on choosing yourself. 40+ poems, digital download, instant.</div>
+          <div class="product-price">$17 <small>One-time</small></div>
+          <a href="#signup" class="product-btn">Get the book</a>
+        </div>
+        <div class="product">
+          <div class="product-tag">DIGITAL DECK</div>
+          <div class="product-title">Daily Bloom Cards</div>
+          <div class="product-body">30 affirmation cards designed in Arlana's voice. Print or save to phone, pull one a day.</div>
+          <div class="product-price">$12 <small>Pre-order</small></div>
+          <a href="#signup" class="product-btn soft">Join the waitlist</a>
+        </div>
+        <div class="product">
+          <div class="product-tag">MEMBERSHIP</div>
+          <div class="product-title">The Self-Love Haven</div>
+          <div class="product-body">Members-only room with weekly journaling prompts, voice notes, and live poetry circles.</div>
+          <div class="product-price">$47 <small>Annual founders rate</small></div>
+          <a href="#signup" class="product-btn soft">Join the waitlist</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="coming">
+    <div class="wrap">
+      <div class="section-tag">Coming to the new garden</div>
+      <div class="divider"></div>
+      <h2>What is blooming next</h2>
+      <p style="text-align:center;font-family:'Lora',serif;font-size:16px;color:#5A534C;padding-top:14px;font-style:italic;">A taste of what the refreshed sanctuary will hold.</p>
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="feature-icon">&#10047;</div>
+          <div class="feature-title">Daily Bloom Library</div>
+          <div class="feature-body">A full archive of every morning bloom, searchable by theme, season, and mood.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#10047;</div>
+          <div class="feature-title">Live Poetry Circles</div>
+          <div class="feature-body">Monthly gatherings in person and online, just like Petals &amp; Poetry on May 31.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#10047;</div>
+          <div class="feature-title">Custom Poems on Commission</div>
+          <div class="feature-body">For weddings, eulogies, milestones, healing. A poem written for your moment.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">&#10047;</div>
+          <div class="feature-title">The Next Petals &amp; Poetry</div>
+          <div class="feature-body">First access to the next live experience. Inside list gets the date before anyone else.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="signup-wrap" id="signup">
+    <div class="wrap">
+      <div class="signup">
+        <div class="section-tag">Stay close</div>
+        <div class="divider"></div>
+        <h2>Be the first when something blooms.</h2>
+        <p style="font-family:'Lora',serif;font-size:16px;color:#5A534C;padding-top:14px;font-style:italic;">A soft email when the date is set, when the ebook drops, when the next room opens. Never noise.</p>
+        <form id="signup-form" action="https://[BREVO_FORM_URL_GOES_HERE]" method="POST">
+          <input type="email" name="EMAIL" placeholder="your email address" required autocomplete="email" />
+          <button type="submit">Slip me into the soil</button>
+        </form>
+        <div id="signup-success" class="success" style="display:none;">Welcome, Beautiful Flower. Check your inbox for a soft hello.</div>
+        <div class="privacy">No spam. No sharing. One soft email per bloom.</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="name">Arlana Flowers</div>
+    <div class="tag">A Self-Love Haven</div>
+    <div class="legal">&copy; 2026 Arlana Flowers. The garden is patient. So are you.</div>
+  </footer>
+
+<script>
+  const blooms = [
+    "You are not behind. You are blooming on your own timeline.",
+    "Pour into yourself first. The overflow is what fills others.",
+    "Soft is not weak. Soft is what survives.",
+    "The body remembers what the mind tries to forget. Listen.",
+    "Rest is rebellion in a world that worships exhaustion.",
+    "You do not have to be ready to begin. You only have to begin.",
+    "Your name in your own mouth is a prayer.",
+    "The garden does not apologize for the seasons.",
+    "Boundaries are bouquets, not barricades.",
+    "You are allowed to outgrow rooms you used to fit in.",
+    "Self-love is a discipline, not a destination.",
+    "The way you speak to yourself is a love language.",
+    "Healing is not linear, it is layered.",
+    "Your softness is the bloom, not the bruise.",
+    "What you water grows. Water yourself today.",
+    "You owe the world nothing but your own becoming.",
+    "Roses do not bloom in apology. Neither should you.",
+    "The light you are looking for is already inside you.",
+    "Quiet is not absence. Quiet is sacred presence.",
+    "Your worth is not a negotiation.",
+    "Breathe like you mean to stay.",
+    "You are the room and the rose at the same time.",
+    "Stop watering the things that never bloom.",
+    "The most radical act is to keep choosing yourself.",
+    "Honor the version of you that survived.",
+    "Your tenderness is a technology.",
+    "Slow is a strategy, not a setback.",
+    "You are not too much. You are exactly enough.",
+    "Joy is a discipline. Practice it daily.",
+    "The next chapter is already growing roots."
+  ];
+
+  function getBloomForOffset(offset) {
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    today.setDate(today.getDate() + offset);
+    const startOfYear = new Date(today.getFullYear(), 0, 0);
+    const dayOfYear = Math.floor((today - startOfYear) / 86400000);
+    const idx = ((dayOfYear % blooms.length) + blooms.length) % blooms.length;
+    return { quote: blooms[idx], date: today };
+  }
+
+  function formatDate(d) {
+    return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+  }
+
+  function showBloom(offset) {
+    const b = getBloomForOffset(offset);
+    document.getElementById('bloom-quote').textContent = '“' + b.quote + '”';
+    document.getElementById('bloom-date').textContent = formatDate(b.date);
+    document.getElementById('btn-today').classList.toggle('active', offset === 0);
+    document.getElementById('btn-yesterday').classList.toggle('active', offset === -1);
+  }
+
+  showBloom(0);
+
+  const form = document.getElementById('signup-form');
+  form.addEventListener('submit', function(e) {
+    if (form.action.indexOf('BREVO_FORM_URL_GOES_HERE') > -1) {
+      e.preventDefault();
+      form.style.display = 'none';
+      document.getElementById('signup-success').style.display = 'block';
+      return;
+    }
+    setTimeout(function(){
+      form.style.display = 'none';
+      document.getElementById('signup-success').style.display = 'block';
+    }, 200);
+  });
+</script>
+
+</body>
+</html>
