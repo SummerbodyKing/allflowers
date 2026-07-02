@@ -199,14 +199,15 @@
           <div class="product-title">Falling For You</div>
           <div class="product-body">A poetry collection on choosing yourself. 10 hand-picked poems, digital download, instant.</div>
           <div class="product-price">$7 <small>One-time</small></div>
-          <a href="#signup" class="product-btn">Get the book</a>
+          <a href="https://payhip.com/b/5Uyp6" target="_blank" rel="noopener" class="product-btn">Buy the ebook</a>
+          <a href="https://www.amazon.com/dp/B099C52VWG" target="_blank" rel="noopener" class="product-btn soft" style="margin-top:8px;">Also on Amazon</a>
         </div>
         <div class="product">
-          <div class="product-tag">DIGITAL DECK</div>
-          <div class="product-title">Daily Bloom Cards</div>
-          <div class="product-body">30 affirmation cards designed in Arlana's voice. Print or save to phone, pull one a day.</div>
-          <div class="product-price">$12 <small>Pre-order</small></div>
-          <a href="#signup" class="product-btn soft">Join the waitlist</a>
+          <div class="product-tag">FREE GIFT</div>
+          <div class="product-title">Self-Love Starter Guide</div>
+          <div class="product-body">A free downloadable guide to begin your self-love practice. Twelve prompts, three rituals, one intention.</div>
+          <div class="product-price">Free <small>PDF download</small></div>
+          <a href="/self-love-guide.pdf" download class="product-btn">Download free guide</a>
         </div>
         <div class="product">
           <div class="product-tag">MEMBERSHIP</div>
@@ -257,11 +258,24 @@
         <div class="divider"></div>
         <h2>Be the first when something blooms.</h2>
         <p style="font-family:'Lora',serif;font-size:16px;color:#5A534C;padding-top:14px;font-style:italic;">A soft email when the date is set, when the ebook drops, when the next room opens. Never noise.</p>
-        <form id="signup-form" action="https://[BREVO_FORM_URL_GOES_HERE]" method="POST">
-          <input type="email" name="EMAIL" placeholder="your email address" required autocomplete="email" />
+        <form id="signup-form" action="javascript:void(0);" method="POST" onsubmit="handleSignup(event); return false;">
+          <input type="email" name="EMAIL" id="signup-email" placeholder="your email address" required autocomplete="email" />
           <button type="submit">Slip me into the soil</button>
         </form>
-        <div id="signup-success" class="success" style="display:none;">Welcome, Beautiful Flower. Check your inbox for a soft hello.</div>
+        <div id="signup-success" class="success" style="display:none;">Welcome, Beautiful Flower. Your email is with me. A soft hello is coming.</div>
+        <script>
+          function handleSignup(e){
+            e.preventDefault();
+            var email = document.getElementById('signup-email').value;
+            if(!email) return false;
+            var subject = encodeURIComponent('New Bloom subscriber: ' + email);
+            var body = encodeURIComponent('New subscriber: ' + email + '\n\nAdd them to your Brevo Bloom Subscribers list.');
+            window.location.href = 'mailto:Arlana@arlanaflowers.com?subject=' + subject + '&body=' + body;
+            document.getElementById('signup-form').style.display='none';
+            document.getElementById('signup-success').style.display='block';
+            return false;
+          }
+        </script>
         <div class="privacy">No spam. No sharing. One soft email per bloom.</div>
       </div>
     </div>
