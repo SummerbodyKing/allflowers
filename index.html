@@ -75,8 +75,12 @@
   /* SHOP THE GARDEN */
   .shop { background: #FBF6E8; padding: 56px 0; position: relative; }
   .shop-rose { width: 70px; margin: 0 auto 14px; display: block; opacity: 0.85; }
-  .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; padding-top: 36px; }
-  .product { background: #FFFFFF; border: 1px solid #E8D9B6; padding: 28px 22px; text-align: center; display: flex; flex-direction: column; }
+  .shop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding-top: 36px; }
+  .product { background: #FFFFFF; border: 1px solid #E8D9B6; padding: 24px 18px; text-align: center; display: flex; flex-direction: column; }
+  .guide-form { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+  .guide-form input { padding: 11px 12px; border: 1px solid #BE9A57; background: #FFFFFF; font-family: 'Lora', serif; font-size: 13px; color: #2B2724; border-radius: 4px; width: 100%; box-sizing: border-box; }
+  .guide-form input:focus { outline: 2px solid #9E1C2A; outline-offset: -1px; }
+  .guide-form .required-note { font-family: 'Lora', serif; font-size: 10px; color: #9C7A2E; font-style: italic; padding-top: 2px; }
   .product-tag { font-family: Arial, sans-serif; font-size: 9px; letter-spacing: 3px; color: #9C7A2E; text-transform: uppercase; }
   .product-title { font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: #7C1622; padding-top: 10px; line-height: 1.2; }
   .product-body { font-family: 'Lora', serif; font-size: 14px; color: #5A534C; line-height: 1.65; padding-top: 12px; flex-grow: 1; }
@@ -112,6 +116,9 @@
   footer .tag { font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 3px; color: #BE9A57; padding-top: 8px; text-transform: uppercase; }
   footer .legal { font-family: 'Lora', serif; font-size: 11px; color: #9C7A2E; padding-top: 18px; }
 
+  @media (max-width: 1000px) {
+    .shop-grid { grid-template-columns: repeat(2, 1fr); }
+  }
   @media (max-width: 600px) {
     .hero-headline { font-size: 38px; }
     h2 { font-size: 30px; }
@@ -200,14 +207,27 @@
           <div class="product-body">A poetry collection on choosing yourself. 10 hand-picked poems, digital download, instant.</div>
           <div class="product-price">$7 <small>One-time</small></div>
           <a href="https://payhip.com/b/5Uyp6" target="_blank" rel="noopener" class="product-btn">Buy the ebook</a>
-          <a href="https://www.amazon.com/dp/B099C52VWG" target="_blank" rel="noopener" class="product-btn soft" style="margin-top:8px;">Also on Amazon</a>
+        </div>
+        <div class="product">
+          <div class="product-tag">AMAZON BOOK</div>
+          <div class="product-title">I AM Affirmation Word Search</div>
+          <div class="product-body">By Arlana Flowers. Positive word search puzzles that fill your mind while your heart breathes. Available on Amazon.</div>
+          <div class="product-price" style="font-size:18px;line-height:1.3;padding-top:24px;">See price on Amazon</div>
+          <a href="https://www.amazon.com/dp/B099C52VWG" target="_blank" rel="noopener" class="product-btn">Buy on Amazon</a>
         </div>
         <div class="product">
           <div class="product-tag">FREE GIFT</div>
           <div class="product-title">Self-Love Starter Guide</div>
-          <div class="product-body">A free downloadable guide to begin your self-love practice. Twelve prompts, three rituals, one intention.</div>
-          <div class="product-price">Free <small>PDF download</small></div>
-          <a href="/self-love-guide.pdf" download class="product-btn">Download free guide</a>
+          <div class="product-body">A free downloadable guide to begin your self-love practice. Drop your email, we send it over.</div>
+          <div class="product-price">Free <small>PDF, email-delivered</small></div>
+          <form name="freeguide" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/guide-thanks.html" class="guide-form">
+            <input type="hidden" name="form-name" value="freeguide" />
+            <p style="display:none;"><label>Do not fill: <input name="bot-field" /></label></p>
+            <input type="email" name="email" placeholder="your email (required)" required autocomplete="email" />
+            <input type="text" name="name" placeholder="your name (optional)" autocomplete="given-name" />
+            <button type="submit" class="product-btn" style="border:none;cursor:pointer;font-family:Arial,sans-serif;">Send me the guide</button>
+            <div class="required-note">Email required. Name optional.</div>
+          </form>
         </div>
         <div class="product">
           <div class="product-tag">MEMBERSHIP</div>
