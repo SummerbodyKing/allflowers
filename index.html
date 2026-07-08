@@ -75,8 +75,8 @@
   /* SHOP THE GARDEN */
   .shop { background: #FBF6E8; padding: 56px 0; position: relative; }
   .shop-rose { width: 70px; margin: 0 auto 14px; display: block; opacity: 0.85; }
-  .shop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding-top: 36px; }
-  .product { background: #FFFFFF; border: 1px solid #E8D9B6; padding: 24px 18px; text-align: center; display: flex; flex-direction: column; }
+  .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; padding-top: 36px; }
+  .product { background: #FFFFFF; border: 1px solid #E8D9B6; padding: 28px 22px; text-align: center; display: flex; flex-direction: column; }
   .guide-form { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
   .guide-form input { padding: 11px 12px; border: 1px solid #BE9A57; background: #FFFFFF; font-family: 'Lora', serif; font-size: 13px; color: #2B2724; border-radius: 4px; width: 100%; box-sizing: border-box; }
   .guide-form input:focus { outline: 2px solid #9E1C2A; outline-offset: -1px; }
@@ -116,9 +116,6 @@
   footer .tag { font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 3px; color: #BE9A57; padding-top: 8px; text-transform: uppercase; }
   footer .legal { font-family: 'Lora', serif; font-size: 11px; color: #9C7A2E; padding-top: 18px; }
 
-  @media (max-width: 1000px) {
-    .shop-grid { grid-template-columns: repeat(2, 1fr); }
-  }
   @media (max-width: 600px) {
     .hero-headline { font-size: 38px; }
     h2 { font-size: 30px; }
@@ -163,16 +160,16 @@
       <h2>The room was set with care.</h2>
       <div class="night-grid">
         <div class="night-photo">
-          <img src="https://allflowers.netlify.app/event/photo-5.jpg" alt="Welcome rose candid" />
-          <div class="cap">welcome rose</div>
+          <img src="https://allflowers.netlify.app/event/photo-5.jpg" alt="Welcome Rose" />
+          <div class="cap">Welcome Rose</div>
         </div>
         <div class="night-photo">
-          <img src="https://allflowers.netlify.app/event/photo-8.jpg" alt="The room reads" />
-          <div class="cap">the room reads</div>
+          <img src="https://allflowers.netlify.app/event/photo-8.jpg" alt="Connection" />
+          <div class="cap">Connection</div>
         </div>
         <div class="night-photo">
-          <img src="https://allflowers.netlify.app/event/photo-9.jpg" alt="Held on the way out" />
-          <div class="cap">goodbye, hold this</div>
+          <img src="https://allflowers.netlify.app/event/photo-9.jpg" alt="Community" />
+          <div class="cap">Community</div>
         </div>
       </div>
     </div>
@@ -228,13 +225,6 @@
             <button type="submit" class="product-btn" style="border:none;cursor:pointer;font-family:Arial,sans-serif;">Send me the guide</button>
             <div class="required-note">Email required. Name optional.</div>
           </form>
-        </div>
-        <div class="product">
-          <div class="product-tag">MEMBERSHIP</div>
-          <div class="product-title">The Self-Love Haven</div>
-          <div class="product-body">Members-only room with weekly journaling prompts, voice notes, and live poetry circles.</div>
-          <div class="product-price">$47 <small>Annual founders rate</small></div>
-          <a href="#signup" class="product-btn soft">Join the waitlist</a>
         </div>
       </div>
     </div>
